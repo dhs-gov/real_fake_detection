@@ -1,6 +1,6 @@
 # Real vs Fake Image Tests
 
-Evaluate open source models in their detection of real vs fake images. Here, we test the following models:
+Evaluate open source models in their detection of real vs fake images of people. Here, we test the following models:
 
 - **dima806/deepfake_vs_real_image_detection**: This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Wvolf/ViT_Deepfake_Detection**: This model is an image classifier that generates real vs fake scores. No explanations are provided.
