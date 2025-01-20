@@ -12,9 +12,13 @@ The dataset for this test is the [Roboflow Image Detection (Rake & Real) Dataset
 
 ## Process
 The testing process comprises the following steps:
-- Randomy sample a set of real and fake images.
-- For each image, run the image through all models.
+- Randomly select sample a set of real and fake images to serve as test dataset.
+- For each image in test dataset:
   - For each model:
-      - Generate real and fake scores.
+      - Generate real and fake scores for image.
       - Compare the real and fake scores against the actual image type (i.e., Real vs Fake).
-      - Calculate the number of correct identifications of the model.
+- Show performance of each model for each image.
+
+## Test
+
+
