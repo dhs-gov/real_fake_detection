@@ -1,26 +1,23 @@
-# Real vs Fake Image Tests
+# Real vs Fake Image Detection
 
-Evaluate open source models in their detection of real vs fake images of people. There are a number of such models available but we only test the following:
+Evaluate image models in their detection of real vs fake images of people. Details about the models will be provided after more testing is performed:
 
 - **Model-1:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Model-2:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Model-3:** This model is an image classifier that generates human vs artificial scores. No explanations are provided.
-- **Model-4:** This model is a general purpose image model that generates real vs fake scores as well as explanations.
+- **Model-4:** This model is a general purpose vision model that generates real vs fake scores as well as explanations.
 
 ## Dataset
-The dataset for this test is the [Roboflow Image Detection (Rake & Real) Dataset v1](https://universe.roboflow.com/1-3wzs6/image-detection-fake-real/dataset/1). Here, we test only a small sample to demonstrate proof-of-concept. Note that other image datasets, such as the [Kaggle 140k Real and Fake Faces](https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces) dataset may be used in future tests.
+These tests use the [Roboflow Image Detection (Rake & Real) Dataset v1](https://universe.roboflow.com/1-3wzs6/image-detection-fake-real/dataset/1). Note that other image datasets, such as the [Kaggle 140k Real and Fake Faces](https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces) dataset may be considered for future tests.
 
 ## Process
 The testing process comprises the following steps:
-- Randomly select sample a set of real and fake images to serve as test dataset.
-- For each image in test dataset:
-  - For each model:
-      - Generate real and fake scores for image.
-      - Compare real and fake scores against the actual image type (i.e., Real vs Fake). If the model correctly identifies the image type, then result is 'Pass'. Otherwise, the result is 'Fail'.
-- Show performance of each model for each image.
+- Randomly select a sample set of real and fake images to serve as the test dataset.
+- For each image in test dataset, run the image through each model and generate real and fake scores for the image. Compare these scores against the actual type for the image (Real vs Fake). If the model correctly identifies the type, the result is 'Pass'.
+- Compute the accuracy for each model over the test dataset.
 
 ## Test
-Short test with 10 images.
+Short test with 10 images. Note that Model-4 results may potentially be improved through prompt engineering. 
 |    | image                                                                                    | actual   | model-1   | model-2   | model-3   | model-4   | model-4-expl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |---:|:--------------------------------------------------------------------------------------------|:---------|:----------|:----------|:----------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  0 | ![Image 1](./images/roboflow/image1.png)                                         | Real     | Pass      | Pass      | Pass      | Pass      | The image appears to be a photograph of a woman with long hair, wearing a white top. The woman is holding a strand of her hair in her hand, and the background is out of focus. The image does not appear to be digitally altered or painted, and the woman's features and expressions seem natural and realistic. Therefore, I score the image as real.                                                                                                                                                                                                                                                                                                                                              |
@@ -56,7 +53,7 @@ Model 4:
 
 ## Using LLM for Explanation Generation
 
-If an existing model has been shown to work well in accurately distinguishing real from fake images, results from that model can then be used as a basis for having an LLM generate an explanation as to why an image is real or fake. For example, we see that Model 3 has correctly identified all real and fake images. We also see that Model 3 has (correctly) identified Image #6 as Fake. Using this information, we can notify the LLM that Image #6 has been determined to be Fake and to provide an explanation as to why the image is Fake. 
+Note that an LLM vision model could potentially be used to provide explanations for another model that exhibits high accuracy but does not provide explanations. For example, we see that Model-3 has accurately identified all images in the dataset but does not provide explanations. Here, we can use the results from Model-3 to inform Model-4 that an image has been determined to be Real or Fake, and instruct Model-4 to explain why. This is shown below for Image #6.
 
 |    | image                                                        | actual   | llm_expl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |---:|:----------------------------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
