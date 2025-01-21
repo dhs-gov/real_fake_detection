@@ -5,7 +5,7 @@ Evaluate image models in their detection of real vs fake images of people. Detai
 - **Model-1:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Model-2:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Model-3:** This model is an image classifier that generates human vs artificial scores. No explanations are provided.
-- **Model-4:** This model is a general purpose vision model that generates real vs fake scores as well as explanations.
+- **Model-4:** This model is an LLM vision model that generates real vs fake scores as well as explanations.
 
 ## Dataset
 These tests use the [Roboflow Image Detection (Rake & Real) Dataset v1](https://universe.roboflow.com/1-3wzs6/image-detection-fake-real/dataset/1). Note that other image datasets, such as the [Kaggle 140k Real and Fake Faces](https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces) dataset may be considered for future tests.
@@ -52,7 +52,7 @@ Model 4:
 
 ## Using LLM for Explanation Generation
 
-Note that an LLM vision model could potentially be used to provide explanations for another model that exhibits high accuracy but does not provide explanations. For example, we see that Model-3 has accurately identified all images in the dataset but does not provide explanations. Here, we can use the results from Model-3 to inform Model-4 that an image has been determined to be Real or Fake, and instruct Model-4 to explain why. This is shown below for Image #6.
+Note that an LLM vision model could potentially be used to provide explanations for another model that exhibits high accuracy but does not provide explanations. For example, we see that Model-3 has accurately identified all images in the dataset but does not provide explanations. Here, we can use the results from Model-3 to inform an LLM vision model, Model-4, that an image has been determined to be Real or Fake, and instruct Model-4 to explain why. This is shown below for Image #6.
 
 |    | image                                                        | actual   | llm_expl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |---:|:----------------------------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
