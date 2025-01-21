@@ -1,6 +1,6 @@
 # Real vs Fake Image Detection
 
-Evaluate image models in their detection of real vs fake images of people. Details about the models will be provided after more testing is performed:
+Evaluate image models in their detection of real vs fake images of people. Details about these models will be provided after more testing is performed:
 
 - **Model-1:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
 - **Model-2:** This model is an image classifier that generates real vs fake scores. No explanations are provided.
