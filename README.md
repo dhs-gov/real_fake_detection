@@ -1,4 +1,4 @@
-# Real vs Fake Image Detection
+# Real vs Fake Image Detection Tests
 
 Evaluate image models in their detection of real vs fake images of people. Details about these models will be provided after more testing is performed:
 
