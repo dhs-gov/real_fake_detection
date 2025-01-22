@@ -35,20 +35,16 @@ Short test with 10 images. Note that the prompt for Model-4 is still being refin
 **Results Overview**
 
 Model 1:
-- Pass:    8
-- Fail:    2
+- Pass:    80%
 
 Model 2:
-- Pass:    8
-- Fail:    2
+- Pass:    80%
 
 Model 3:
-- Pass:    10
-- Fail:    0
+- Pass:    100%
 
 Model 4:
-- Pass:    6
-- Fail:    4
+- Pass:    60%
 
 ## Using LLM for Explanation Generation
 
